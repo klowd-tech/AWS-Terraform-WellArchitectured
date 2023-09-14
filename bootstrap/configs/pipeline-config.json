@@ -1,0 +1,41 @@
+{
+    "schema_version": "tags/20220517.1",
+    "ecr_region": "us-east-2",
+    "docker_context_directory": "Lambda",
+    "docker_file": "config.Dockerfile",
+    "services": {
+        "lsports": {
+            "service_name": "lsports_consume",
+            "ecr_tag": 20220517.1
+        },
+        "firebase": {
+            "service_name": "populate_firebase",
+            "ecr_tag": 20220517.1
+        },
+        "create_market": {
+            "service_name": "create_market",
+            "ecr_tag": 20220517.1
+        }
+    },
+    "lambda_configs_path": "Lambda/configs",
+    "config_schema_path": "config-schemas",
+    "terraform_directory": "Terraform2",
+    "environments": {
+        "prod": {
+            "workspaces": [
+                "solid",
+                "flexible"
+            ]
+        },
+        "dev": {
+            "workspaces": [
+                "default"
+            ]
+        },
+        "sandbox": {
+            "workspaces": [
+                "default"
+            ]
+        }
+    }
+}
